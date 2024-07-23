@@ -1,7 +1,3 @@
-env: []
-#  - name: FOO
-#    value: "bar"
-
 ## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file
 config:
   service: |
@@ -20,7 +16,7 @@ config:
   inputs: |
     [INPUT]
         Name tail
-        Path /var/log/containers/*_dedalus-app1_*.log
+        Path /var/log/containers/*_[NAMESPACE_WHERE_APPLICATIONS_ARE_RUNNING]_*.log
         multiline.parser docker, cri
         Tag kube.*
         Mem_Buf_Limit 5MB
@@ -40,7 +36,7 @@ config:
   outputs: |
     [OUTPUT]
         Name forward
-        Host fluentd-aggregator.dedalus-logging
+        Host fluentd-aggregator.[NAMESPACE_WHERE_FLUENTD_IS_RUNNING]
         Port 24224
 
   ## https://docs.fluentbit.io/manual/pipeline/parsers

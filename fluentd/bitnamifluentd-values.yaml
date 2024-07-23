@@ -1,0 +1,29 @@
+image:
+  registry: docker.io
+  repository: bitnami/fluentd
+  tag: 1.17.0-debian-12-r5
+
+## Forwarder parameters
+##
+forwarder:
+  ## @param forwarder.enabled Enable forwarder daemonset
+  ##
+  enabled: false
+## Aggregator parameters
+##
+aggregator:
+  ## @param aggregator.enabled Enable Fluentd aggregator statefulset
+  ##
+  enabled: true
+  ## @param aggregator.replicaCount Number of aggregator pods to deploy in the Stateful Set
+  ##
+  replicaCount: 1
+  ## Pods Service Account
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+  ##
+  configMap: fluentd-input-output
+  extraEnvVars:
+    - name: ELASTICSEARCH_HOST
+      value: "elasticsearch"
+    - name: ELASTICSEARCH_PORT
+      value: "9200"

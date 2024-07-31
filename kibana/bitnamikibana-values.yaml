@@ -1,8 +1,3 @@
-image:
-  registry: docker.io
-  repository: bitnami/kibana
-  tag: 8.14.3-debian-12-r0
-
 ## @param resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if resources is set (resources is recommended for production).
 ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
 ##
@@ -21,6 +16,14 @@ tls:
 ## @section Elasticsearch parameters
 ##
 elasticsearch:
+  ## @param elasticsearch.hosts List of elasticsearch hosts to connect to.
+  ## e.g:
+  ## hosts:
+  ##   - elasticsearch-1
+  ##   - elasticsearch-2
+  ##
+  hosts:
+    - logging-elasticsearch
   security:
     auth:
       ## @param elasticsearch.security.auth.enabled Set to 'true' if Elasticsearch has authentication enabled
@@ -29,13 +32,14 @@ elasticsearch:
       ## @param elasticsearch.security.auth.createSystemUser If enabled, Kibana will use Elasticsearch API to create the 'kibana_system' user at startup.
       ##
       createSystemUser: true
+      elasticsearchPasswordSecret: "logging-elasticsearch"
     tls:
       ## @param elasticsearch.security.tls.enabled Set to 'true' if Elasticsearch API uses TLS/SSL (HTTPS)
       ##
       enabled: true
       ## @param elasticsearch.security.tls.existingSecret Name of the existing secret containing Elasticsearch Truststore or CA certificate. Required unless verificationMode=none
       ##
-      existingSecret: "elasticsearch-master-crt"
+      existingSecret: "logging-elasticsearch-master-crt"
       ## @param elasticsearch.security.tls.usePemCerts Set to 'true' to use PEM certificates instead of PKCS12.
       ##
       usePemCerts: true

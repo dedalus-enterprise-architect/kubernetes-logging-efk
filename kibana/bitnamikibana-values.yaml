@@ -24,7 +24,9 @@ elasticsearch:
   ##
   hosts:
     - logging-elasticsearch
-  port: 9200
+  ## @param elasticsearch.port Elasticsearch port
+  ##
+  port: "9200"
   security:
     auth:
       ## @param elasticsearch.security.auth.enabled Set to 'true' if Elasticsearch has authentication enabled

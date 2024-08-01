@@ -24,6 +24,7 @@ elasticsearch:
   ##   - elasticsearch-2
   ##
   hosts:
+    - logging-elasticsearch
     - logging-elasticsearch-master-hl
   ## @param elasticsearch.port Elasticsearch port
   ##

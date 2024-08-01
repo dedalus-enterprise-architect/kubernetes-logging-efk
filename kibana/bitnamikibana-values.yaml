@@ -32,6 +32,9 @@ elasticsearch:
       ## @param elasticsearch.security.auth.createSystemUser If enabled, Kibana will use Elasticsearch API to create the 'kibana_system' user at startup.
       ##
       createSystemUser: true
+      ## @param elasticsearch.security.auth.existingSecret Name of the existing secret containing the password for the 'kibana_system' user.
+      ##
+      existingSecret: "logging-kibana"
       elasticsearchPasswordSecret: "logging-elasticsearch"
     tls:
       ## @param elasticsearch.security.tls.enabled Set to 'true' if Elasticsearch API uses TLS/SSL (HTTPS)

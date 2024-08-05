@@ -30,7 +30,7 @@ aggregator:
 
   ## @param aggregator.extraEnvVarsSecret Name of existing Secret containing extra env vars for Fluentd Aggregator nodes
   ##
-  extraEnvVarsSecret: "logging-fluentd"
+  extraEnvVarsSecret: logging-fluentd
   ## Aggregator containers' resource requests and limits
   ## ref: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
   ## We usually recommend not to specify default resources and to leave this as a conscious

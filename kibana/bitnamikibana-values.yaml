@@ -24,7 +24,6 @@ elasticsearch:
   ##   - elasticsearch-2
   ##
   hosts:
-    - logging-elasticsearch
     - logging-elasticsearch-master-hl
   ## @param elasticsearch.port Elasticsearch port
   ##
@@ -51,3 +50,7 @@ elasticsearch:
       ## @param elasticsearch.security.tls.usePemCerts Set to 'true' to use PEM certificates instead of PKCS12.
       ##
       usePemCerts: true
+      ## @param elasticsearch.security.tls.verificationMode Verification mode for SSL communications.
+      ## Supported values: full, certificate, none.
+      ## Ref: https://www.elastic.co/guide/en/kibana/7.x/settings.html#elasticsearch-ssl-verificationmode
+      verificationMode: "none"

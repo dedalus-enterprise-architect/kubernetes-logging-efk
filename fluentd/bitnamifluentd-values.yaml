@@ -24,9 +24,9 @@ aggregator:
   ##
   extraEnvVars:
     - name: ELASTICSEARCH_HOST
-      value: logging-elasticsearch
+      value: "logging-elasticsearch"
     - name: ELASTICSEARCH_PORT
-      value: 9200
+      value: "9200"
 
   ## @param aggregator.extraEnvVarsSecret Name of existing Secret containing extra env vars for Fluentd Aggregator nodes
   ##

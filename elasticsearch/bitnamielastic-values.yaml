@@ -1,9 +1,6 @@
 global:
+## @param global.kibanaEnabled Whether or not to enable Kibana
   kibanaEnabled: false
-image:
-  registry: docker.io
-  repository: bitnami/elasticsearch
-  tag: 8.14.3-debian-12-r0
 
 ## X-Pack security parameters
 ## Note: TLS configuration is required in order to configure password authentication

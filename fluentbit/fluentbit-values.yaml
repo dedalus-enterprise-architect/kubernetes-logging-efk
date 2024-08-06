@@ -36,7 +36,7 @@ config:
   outputs: |
     [OUTPUT]
         Name forward
-        Host fluentd-aggregator.[NAMESPACE_WHERE_FLUENTD_IS_RUNNING]
+        Host logging-fluentd-aggregator.[NAMESPACE_WHERE_FLUENTD_IS_RUNNING]
         Port 24224
 
   ## https://docs.fluentbit.io/manual/pipeline/parsers

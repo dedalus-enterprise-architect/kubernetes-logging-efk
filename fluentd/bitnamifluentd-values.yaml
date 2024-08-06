@@ -24,7 +24,7 @@ aggregator:
   ##
   extraEnvVars:
     - name: ELASTICSEARCH_HOST
-      value: "logging-elasticsearch"
+      value: logging-elasticsearch
     - name: ELASTICSEARCH_PORT
       value: "9200"
 
